@@ -1,0 +1,118 @@
+$block: "loading";
+$bg-day-desktop: url(/src/assets/bg-image-daytime-desktop.jpg);
+$bg-day-mobile: url(/src/assets/bg-image-daytime.jpg);
+$bg-day-tablet: url(/src/assets/bg-image-daytime-tablet.jpg);
+
+$bg-night-desktop: url(/src/assets/bg-image-nighttime-desktop.jpg);
+$bg-night-mobile: url(/src/assets/bg-image-nighttime.jpg);
+$bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
+
+.#{$block} {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::after {
+      content: "";
+      position: absolute;
+      min-width: 375px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000000, 0.5);
+    }
+
+    &.day {
+      background-image: $bg-day-mobile;
+    }
+    &.night {
+      background-image: $bg-night-mobile;
+    }
+    // media query 768px to 992px (tablet)
+    @media (min-width: 768px) {
+      &.day {
+        background-image: $bg-day-tablet;
+      }
+
+      &.night {
+        background-image: $bg-night-tablet;
+      }
+      .show-more {
+        &.open {
+          transform: translate(0, -40%);
+        }
+      }
+    }
+    // media query >=992px  (desktop)
+    @media (min-width: 992px) {
+      &.day {
+        background-image: $bg-day-desktop;
+      }
+
+      &.night {
+        background-image: $bg-night-desktop;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      z-index: 1;
+      &:after {
+        content: "...";
+        animation: dotsOneByOne 1.5s steps(5, end) infinite;
+      }
+
+      @keyframes dotsOneByOne {
+        0%,
+        20% {
+          content: " ";
+        }
+        40% {
+          content: ".";
+        }
+        60% {
+          content: "..";
+        }
+        80%,
+        100% {
+          content: "...";
+        }
+      }
+    }
+  }
+
+  &__spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    z-index: 1;
+    border: 10px solid #f3f3f3;
+
+    &.day {
+      border-top: 10px solid #3498db;
+    }
+    &.night {
+      border-top: 10px solid #2081c2;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+// variable btn
+$block: "btn";
+
+.#{$block} {
+  &__show-more {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 28px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    width: 115px;
+    height: 39px;
+    justify-content: space-between;
+
+    span {
+      color: #000000;
+      opacity: 0.5;
+      padding-left: 17px;
+    }
+
+    &:hover {
+      img {
+        opacity: 0.5;
+      }
+    }
+
+    &.open {
+      img {
+        transform: rotate(0deg);
+      }
+    }
+    &.close {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      padding: 4px;
+      transition: all 0.3s ease;
+    }
+  }
+  &__refresh {
+    cursor: pointer;
+    height: fit-content;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: rotate(15deg);
+    }
+  }
+  @media (min-width: 992px) {
+    &__show-more {
+      align-self: flex-end;
+      margin-right: 165px;
+    }
+  }
+}

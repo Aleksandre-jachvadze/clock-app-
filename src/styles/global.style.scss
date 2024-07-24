@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+$bg-day-desktop: url(/src/assets/bg-image-daytime-desktop.jpg);
+$bg-day-mobile: url(/src/assets/bg-image-daytime.jpg);
+$bg-day-tablet: url(/src/assets/bg-image-daytime-tablet.jpg);
+
+$bg-night-desktop: url(/src/assets/bg-image-nighttime-desktop.jpg);
+$bg-night-mobile: url(/src/assets/bg-image-nighttime.jpg);
+$bg-night-tablet: url(/src/assets/bg-image-nighttime-tablet.jpg);
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+input,
+div,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  background-color: rgba(#000000, 0.5);
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .show-more {
+    transition: all 0.8s ease;
+    height: 100vh;
+    &.open {
+      transform: translate(0, -35%);
+    }
+  }
+
+  &.day {
+    background-image: $bg-day-mobile;
+  }
+
+  &.night {
+    background-image: $bg-night-mobile;
+  }
+  // media query 768px to 992px (tablet)
+  @media (min-width: 768px) {
+    &.day {
+      background-image: $bg-day-tablet;
+    }
+
+    &.night {
+      background-image: $bg-night-tablet;
+    }
+    .show-more {
+      &.open {
+        transform: translate(0, -40%);
+      }
+    }
+  }
+  // media query >=992px  (desktop)
+  @media (min-width: 992px) {
+    &.day {
+      background-image: $bg-day-desktop;
+    }
+
+    &.night {
+      background-image: $bg-night-desktop;
+    }
+  }
+}

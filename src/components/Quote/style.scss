@@ -1,0 +1,46 @@
+$block: "quote";
+
+.#{$block} {
+  &__container {
+    display: flex;
+    z-index: 1;
+    padding: 31px 25px;
+  }
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 540px;
+    margin-right: 10px;
+    cursor: default;
+  }
+  &__quote-item {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
+  &__author-item {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  @media (min-width: 992px) {
+    &__container {
+      padding: 31px 160px;
+    }
+    &__quote-item {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    &__author-item {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
